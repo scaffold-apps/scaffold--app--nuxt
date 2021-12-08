@@ -1,5 +1,8 @@
 <template>
-  <Tutorial/>
+  <div>
+    <div>header</div>
+    <div>body</div>
+  </div>
 </template>
 
 <script lang="ts">
