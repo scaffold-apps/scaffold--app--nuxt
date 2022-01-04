@@ -3,6 +3,32 @@
         <v-app-bar app elevation="0">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-app-bar-title>Header</v-app-bar-title>
+            <v-spacer></v-spacer>
+            <v-menu
+              left
+              bottom
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-icon>mdi-translate</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item-group v-model="localeGroup" active-class="deep-purple--text text--accent-4">
+                <v-list-item
+                  v-for="locale in $i18n.locales"
+                  :key="locale.code"
+                  @click="$i18n.setLocale(locale.code)"
+                >
+                  <v-list-item-title>{{ locale.name }}</v-list-item-title>
+                </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-menu>
         </v-app-bar>
 
         <v-navigation-drawer app v-model="drawer" absolute bottom temporary>
@@ -16,12 +42,13 @@
                 </v-container>
             </v-sheet>
             <v-list nav dense>
-                <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
+                <v-list-item-group v-model="linksGroup" active-class="deep-purple--text text--accent-4">
                     <v-list-item
-                        v-for="({ text, url }, index) in links"
+                        v-for="({ text, route }, index) in links"
                         :key="index"
-                        :to="url"
+                        :to="localePath(route, $i18n.locale)"
                         nuxt
+                        exact
                         class="list-item"
                     >
                         <v-list-item-title>{{ text }}</v-list-item-title>
@@ -43,22 +70,31 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Watch } from 'vue-property-decorator'
 
-@Component
+@Component({
+  head() {
+    // https://i18n.nuxtjs.org/seo
+    return this.$nuxtI18nHead({ addSeoAttributes: true })
+  }
+})
 export default class DefaultLayout extends Vue {
     drawer = false;
-    group = null;
-    links = [
-        {
-            text: 'Home',
-            url: '/'
-        },
-        {
-            text: 'About',
-            url: '/about',
-        },
-    ]
+    linksGroup = null;
+    localeGroup = this.$i18n.localeCodes.indexOf(this.$i18n.locale)
 
-    @Watch('group')
+  get links () {
+      return [
+        {
+          text: this.$t('nav.home'),
+          route: 'index'
+        },
+        {
+          text: this.$t('nav.about'),
+          route: 'about',
+        },
+      ]
+    }
+
+    @Watch('linksGroup')
     onGroupChanged() { this.drawer = false }
 }
 </script>

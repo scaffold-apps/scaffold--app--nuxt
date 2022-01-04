@@ -1,3 +1,3 @@
 <template>
-    <div>This is an about page</div>
+    <div>{{ $t('pages.about') }}</div>
 </template>

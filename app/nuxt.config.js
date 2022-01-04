@@ -1,3 +1,7 @@
+const getI18nLocales = require("./i18n/getI18n").default;
+
+const locales = getI18nLocales()
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -9,10 +13,10 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
   },
 
@@ -31,7 +35,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    
+
     '@nuxtjs/vuetify',
   ],
 
@@ -43,7 +47,20 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    // baseUrl: // My Production Domain Here
+    lazy: true,
+    langDir: 'i18n/locales/',
+    locales,
+    defaultLocale: locales[0].code,
+    vueI18n: {
+      fallbackLocale: locales[0].code,
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

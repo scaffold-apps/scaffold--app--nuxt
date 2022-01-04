@@ -1,0 +1,14 @@
+{
+  "lang": {
+    "iso": "fr-FR",
+    "name": "Français"
+  },
+  "pages": {
+    "home": "Bonjour!",
+    "about": "Ceci est une page d'a propos"
+  },
+  "nav": {
+    "home": "Acceuil",
+    "about": "A propos"
+  }
+}
