@@ -2,7 +2,7 @@
     <v-app>
         <v-app-bar app elevation="0">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-app-bar-title>Header</v-app-bar-title>
+            <div class="header__title">{{ $t('header.title') }}</div>
             <v-spacer></v-spacer>
             <v-menu
               left
@@ -102,5 +102,8 @@ export default class DefaultLayout extends Vue {
 <style scoped>
 .list-item {
     text-decoration: none;
+}
+.header__title {
+    font-size: 18px;
 }
 </style>

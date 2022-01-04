@@ -3,6 +3,9 @@
     "iso": "fr-FR",
     "name": "Français"
   },
+  "header": {
+    "title": "Mon app"
+  },
   "pages": {
     "home": "Bonjour!",
     "about": "Ceci est une page d'a propos"
