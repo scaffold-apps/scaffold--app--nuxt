@@ -1,4 +1,4 @@
-# scaffold-nuxt
+# Scaffold Nuxt Boilerplate
 
 ## Build Setup
 
