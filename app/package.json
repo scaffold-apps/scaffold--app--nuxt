@@ -1,5 +1,5 @@
 {
-  "name": "scaffold--static-website--nuxt",
+  "name": "scaffold--app--nuxt",
   "version": "1.0.0",
   "private": true,
   "scripts": {
