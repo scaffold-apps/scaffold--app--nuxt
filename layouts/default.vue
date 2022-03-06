@@ -7,6 +7,9 @@
           <template v-slot:menu-icon>
             <nav-icon @click:icon="drawer = !drawer"></nav-icon>
           </template>
+          <template v-slot:right>
+            <v-btn @click="print">Print Message</v-btn>
+          </template>
         </nav-bar>
 
         <navigation-drawer :drawer="drawer" @update:drawer="onDrawerUpdate"></navigation-drawer>
@@ -24,6 +27,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import helloWorld from "~/api/helloWorld";
 
 @Component({
   head() {
@@ -36,6 +40,10 @@ export default class DefaultLayout extends Vue {
 
     onDrawerUpdate(value: boolean) {
       this.drawer = value
+    }
+
+    print() {
+      helloWorld.print().then(alert);
     }
 }
 </script>
