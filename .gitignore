@@ -7,12 +7,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-main/logs
-app/*.log
-main/npm-debug.log*
-main/yarn-debug.log*
-main/yarn-error.log*
-
 # Runtime data
 pids
 *.pid
@@ -24,11 +18,9 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
-main/coverage
 
 # nyc test coverage
 .nyc_output
-main/.nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -41,21 +33,16 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-main/build/Release
 
 # Dependency directories
 node_modules/
 jspm_packages/
-main/node_modules/
-main/jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
-main/typings/
 
 # Optional npm cache directory
 .npm
-main/.npm
 
 # Optional eslint cache
 .eslintcache
@@ -68,11 +55,9 @@ main/.npm
 
 # Yarn Integrity file
 .yarn-integrity
-main/.yarn-integrity
 
 # dotenv environment variables file
 .env
-main/.env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -82,31 +67,24 @@ main/.env
 
 # nuxt.js build output
 .nuxt
-main/.nuxt
 
 # Nuxt generate
 dist
-main/dist
 
 # vuepress build output
 .vuepress/dist
-main/.vuepress/dist
 
 # Serverless directories
 .serverless
-main/.serverless
 
 # IDE / Editor
 .idea
-main/.idea
 
 # Service worker
 sw.*
-main/sw.*
 
 # macOS
 .DS_Store
-main/.DS_Store
 
 # Vim swap files
 *.swp
