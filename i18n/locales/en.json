@@ -3,6 +3,9 @@
     "iso": "en-US",
     "name": "English"
   },
+  "navbar": {
+    "translations": "Translations"
+  },
   "header": {
     "title": "My app"
   },

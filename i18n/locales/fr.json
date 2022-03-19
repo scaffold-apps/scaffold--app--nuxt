@@ -3,6 +3,9 @@
     "iso": "fr-FR",
     "name": "Français"
   },
+  "navbar": {
+    "translations": "Traductions"
+  },
   "header": {
     "title": "Mon app"
   },

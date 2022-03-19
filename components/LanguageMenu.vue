@@ -1,37 +1,38 @@
 <template>
-  <v-menu
-    left
-    bottom
+  <drop-down-menu
+    :subheader="$t('navbar.translations')"
+    :groupModel="localeGroup"
+    :items="$i18n.locales"
+    @onItemClick="onItemClick"
   >
-    <template v-slot:activator="{ on, attrs }">
+    <template v-slot:trigger="props">
       <v-btn
-        icon
-        v-bind="attrs"
-        v-on="on"
+        text
+        rounded
+        v-bind="props.attrs"
+        v-on="props.on"
       >
-        <v-icon>mdi-translate</v-icon>
+        <v-icon :size="20">mdi-translate</v-icon>
+        <chevron-down-icon />
       </v-btn>
     </template>
-    <v-list>
-      <v-list-item-group v-model="localeGroup" active-class="deep-purple--text text--accent-4">
-        <v-list-item
-          v-for="locale in $i18n.locales"
-          :key="locale.code"
-          @click="$i18n.setLocale(locale.code)"
-        >
-          <v-list-item-title>{{ locale.name }}</v-list-item-title>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-  </v-menu>
+  </drop-down-menu>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import DropDownMenu from "~/components/DropDownMenu.vue";
+import ChevronDownIcon from "~/components/ChevronDownIcon.vue";
 
-@Component
+@Component({
+  components: {ChevronDownIcon, DropDownMenu}
+})
 export default class LanguageMenu extends Vue {
   localeGroup = this.$i18n.localeCodes.indexOf(this.$i18n.locale)
+
+  onItemClick(locale: any) {
+    this.$i18n.setLocale(locale.code)
+  }
 }
 </script>
