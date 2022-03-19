@@ -4,10 +4,8 @@
     "name": "English"
   },
   "navbar": {
+    "title": "My app",
     "translations": "Translations"
-  },
-  "header": {
-    "title": "My app"
   },
   "pages": {
     "home": "Hello!",

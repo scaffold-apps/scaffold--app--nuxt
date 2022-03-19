@@ -1,6 +1,9 @@
 <template>
     <v-app>
-        <nav-bar title="Add tokens">
+        <nav-bar>
+          <template v-slot:title>
+            <span class="ml-2">{{ $t('navbar.title') }}</span>
+          </template>
           <template v-slot:menu-icon>
             <nav-icon @click:icon="drawer = !drawer"></nav-icon>
           </template>
