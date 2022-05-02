@@ -16,6 +16,8 @@
             <nuxt />
           </template>
         </main-body>
+
+        <global-alerts />
     </v-app>
 </template>
 
