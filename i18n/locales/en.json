@@ -7,6 +7,9 @@
     "title": "My app",
     "translations": "Translations"
   },
+  "toast": {
+    "close": "Close"
+  },
   "pages": {
     "home": "Hello!",
     "about": "This is an about page"

@@ -17,7 +17,7 @@
         v-bind="attrs"
         @click="closeAlert"
       >
-        Close
+        {{ $t('toast.close') }}
       </v-btn>
     </template>
   </v-snackbar>
