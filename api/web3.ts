@@ -1,37 +1,11 @@
-import Web3 from "web3";
-
 interface ABIResponse {
   message: string
   result: string
   status: string
 }
 
-export async function init(axios: any) {
-  // @ts-ignore
-  if (window.ethereum) {
-    // @ts-ignore
-    // TODO: Add handle function for when the current account changes
-    await window.ethereum.request({method: 'eth_requestAccounts'});
-
-    window.web3 = new Web3(window.ethereum)
-
-    await setCurrentAccount()
-    await initContract(axios)
-  }
-}
-
-export async function setCurrentAccount() {
-  window.web3.eth.getAccounts().then((accounts: string[]) => {
-    window.currentWeb3Account = accounts[0]
-  })
-}
-
-export async function initContract(axios: any) {
-  if(!window.web3Contract) {
-    const contractABI = await getContractABI(axios)
-
-    window.web3Contract = new window.web3.eth.Contract(contractABI, process.env.CONTRACT_ADDRESS);
-  }
+export enum WEB3_ERROR {
+  USER_REJECTED = 'User rejected the request.'
 }
 
 export async function getContractABI(axios: any) {
@@ -42,6 +16,10 @@ export async function getContractABI(axios: any) {
   return JSON.parse(response.result)
 }
 
-export function getContractMethod(methodName: string) {
-  return window.web3Contract.methods[methodName]
+export function getContractMethod(web3Contract: any, methodName: string) {
+  if(web3Contract?.web3Contract?.methods) {
+    return web3Contract.web3Contract.methods[methodName]
+  } else {
+    return null
+  }
 }

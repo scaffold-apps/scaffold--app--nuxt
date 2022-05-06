@@ -5,10 +5,18 @@
   },
   "navbar": {
     "title": "Mon app",
-    "translations": "Traductions"
+    "translations": "Traductions",
+    "connect": "Se connecter",
+    "connect_wallet": "Connecter un wallet",
+    "connected_wallet": "Wallet",
+    "print_message": "Imprimer Message",
+    "logout": "Déconnecter"
   },
   "toast": {
-    "close": "Fermer"
+    "close": "Fermer",
+    "errorMessages": {
+      "userRejected": "Vous avez refuser de connecter votre wallet."
+    }
   },
   "pages": {
     "home": "Bonjour!",

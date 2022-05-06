@@ -5,6 +5,7 @@ const locales = getI18nLocales()
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  mode: 'spa',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -25,9 +26,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    {src: '~/plugins/web3.js', ssr: false}
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

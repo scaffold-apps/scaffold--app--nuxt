@@ -5,10 +5,18 @@
   },
   "navbar": {
     "title": "My app",
-    "translations": "Translations"
+    "translations": "Translations",
+    "connect": "Connect",
+    "connect_wallet": "Connect a wallet",
+    "connected_wallet": "Wallet",
+    "print_message": "Print Message",
+    "logout": "Logout"
   },
   "toast": {
-    "close": "Close"
+    "close": "Close",
+    "errorMessages": {
+      "userRejected": "You have rejected to connect your wallet."
+    }
   },
   "pages": {
     "home": "Hello!",

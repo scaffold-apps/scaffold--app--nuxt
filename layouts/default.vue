@@ -8,7 +8,9 @@
             <nav-icon @click:icon="drawer = !drawer"></nav-icon>
           </template>
           <template v-slot:right>
-            <v-btn @click="print">Print Message</v-btn>
+            <connect v-if="!connected" />
+            <connected v-else="connected" />
+            <v-btn v-if="connected" @click="print" text rounded>{{ $t('navbar.print_message') }}</v-btn>
           </template>
         </nav-bar>
 
@@ -27,7 +29,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import helloWorld from "~/api/helloWorld";
 
 @Component({
   head() {
@@ -43,7 +44,11 @@ export default class DefaultLayout extends Vue {
     }
 
     print() {
-      helloWorld.print().then(alert);
+      this.$store.dispatch('helloWorld/print')
+    }
+
+    get connected() {
+      return this.$store.getters["web3/connected"]
     }
 }
 </script>
