@@ -15,7 +15,7 @@ export const mutations = {
 
 export const getters = {
   connected(state) {
-    return !!state.currentAccount
+    return !!state.web3 && !!state.currentAccount
   },
   currentWallet(state) {
     return state.currentWallet
@@ -58,5 +58,13 @@ export const actions = {
     commit('SET_VALUE', {item: 'currentWallet', value: null})
     commit('SET_VALUE', {item: 'currentAccount', value: null})
     commit('SET_VALUE', {item: 'web3', value: null})
+  },
+
+  reconnect({state, dispatch}) {
+    const hasConnectedBefore = state.web3 == null && !!state.currentAccount
+
+    if(hasConnectedBefore) {
+      dispatch('initWeb3')
+    }
   }
 }

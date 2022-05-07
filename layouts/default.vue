@@ -50,6 +50,10 @@ export default class DefaultLayout extends Vue {
     get connected() {
       return this.$store.getters["web3/connected"]
     }
+
+    mounted() {
+      this.$store.dispatch('web3/reconnect')
+    }
 }
 </script>
 
